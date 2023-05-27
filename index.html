@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="dash">
+    <header class="dash-header">
+        <a href="#" class="logo">
+            <h1 style="margin:0px; margin-top:5px;">Health Dashboard</h1>
+        </a>
+        <div class="user">
+            
+            <a href="#" class="btn btn--primary"><img style="width:40px; vertical-align: middle;  padding-right:10px;" src="/media/profile.png" alt="User's Profile Picture">John Doe</a>
+        </div>
+    </header>
+
+    <main class="dash-main">
+        <div class="dashboard">
+            <div class="dashboard-item dashboard-item--col">
+                <div class="card">
+                    <div class="card-header">
+                        Activities Completed <span class="clue">(weekly)</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-item">
+                            <div style="width:100%; margin:0 auto;">
+                                <canvas id="activityChart"></canvas>
+                              </div>
+                              <a href="#" style="margin-top:15px;" class="btn btn--primary card-btn">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-item dashboard-item--col">
+                <div class="card">
+                    <div class="card-header">
+                        Total Activities Completed
+                    </div>
+                    <div class="card-content">
+                        <div class="card-item">
+                            <div style="padding-bottom:30px; text-align: center;"><span class="card-number">15</span><span class="card-clue">activities completed since 01/01/2023</span></div>
+                            <a href="#"  style="margin-top:30px;"class="btn btn--primary card-btn">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-item dashboard-item--col">
+                <div class="card">
+                    <div class="card-header">
+                        Scheduled Activities
+                    </div>
+                    <div class="card-content">
+                        <div class="card-item">
+                            <div style="padding-bottom:30px; text-align: center;"><span class="card-number">6</span><span class="card-clue">activities scheduled since 01/01/2023</span></div>
+                            <a href="#" style="margin-top:50px;" class="btn btn--primary card-btn">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-item dashboard-item--col">
+                <div class="card">
+                    <div class="card-header">
+                        Leaderboard placing
+                    </div>
+                    <div class="card-content">
+                        <div class="card-item">
+                            <div style="padding-bottom:30px; text-align: center;"><span class="card-number">6</span><span style="color:#0094FF; font-weight:bold; font-size:35px;" class="card-clue">/ 10</span><span style="color:#0094FF" class="card-clue"> opponents on the weekly leaderboard !</span></div>
+                        <a href="#" style="margin-top:40px;" class="btn btn--primary card-btn">See More</a>
+                    </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-item dashboard-item--col">
+                <div class="card">
+                    <div class="card-header">
+                        Earned Badges <span class="clue">(last 15 days)</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-item">
+                        <div class="container-earned-badges">
+                            <center>
+                                <img class="earned-badge" src="/media/5kRunBadge.png" alt="Earned badge demo">
+                                <img class="earned-badge blurred-badge" src="/media/5kRunBadge.png" alt="Earned badge demo">
+                            </center>
+                            </div>
+                            <a href="#" style="margin-top:30px;" class="btn btn--primary card-btn">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-item dashboard-item--col">
+                <div class="card">
+                    <div class="card-header">
+                        Leaderboard settings
+                    </div>
+                    <div class="card-content">
+                        <div class="card-item">
+                        <div class="setting">
+                            <span class="setting-parameter">Visible on Leaderboard : </span><label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                              </label>
+                        </div>
+                        <a href="#" style="margin-top:200px;" class="btn btn--primary card-btn">See More</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+        <div id="feedback-button">
+            <button class="feedback">Ask Froggy !</button>
+        </div>
+    </main>
+</body>
+    <footer class="dash-footer">
+        <span style="margin-left: 10px; color:white; font-family:'Plus Jakarta Sans'">&copy; Made in 2023.</span>
+    </footer>
+</div>
+<script>
+const ctx = document.getElementById('activityChart');
+
+new Chart(ctx, {
+type: 'bar',
+data: {
+    labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    datasets: [{
+    label: 'Activites completed this week',
+    data: [12, 19, 3, 5, 2, 3,7], //Put the data here, you should use AJAX in order to make PHP requests to the database.
+    borderWidth: 2
+    }]
+},
+options: {
+    scales: {
+    y: {
+        beginAtZero: true
+    }
+    }
+}
+});
+</script>
+</html>
